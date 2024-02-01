@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/css/output.css">
 </head>
-<body>
-    <h2>Login</h2>
-    <form th:action="@{/login}" method="post">
-		 <fieldset>
-        <div>
-            <label for="username">User:</label>
-            <input type="text" id="username" name="username" />
+<body class="bg-gradient-to-r from-blue-500 to-teal-400 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700">Sign In</h2>
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="username">Username</label>
+                    <input th:name="username" id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="password">Password</label>
+                    <input th:name="password" id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40">
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <button type="submit" class="px-4 py-2 leading-6 text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" />
-        </div>
-        <div>
-            <input type="submit" value="Log in" />
-        </div>
-        <p th:if="${param.error}">
-            Invalid username or password.
-        </p>
-        <p th:if="${param.logout}">
-            You have been logged out.
-        </p>
-        </fieldset>
-    </form>
+    </div>
 </body>
 </html>
